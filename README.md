@@ -17,3 +17,23 @@ static void Main()
     new VM(bytecode.ToArray()).Execute(); // 165
 }
 ```
+
+## Python 3.x
+
+```py
+if __name__ == "__main__":
+    # Example bytecode: push 12, push 13, add, push 5, add, print, return
+    bytecode = bytearray()
+    bytecode.append(6)  # IL_INTEGER
+    bytecode.extend(struct.pack('i', 12))  # 12
+    bytecode.append(6)  # IL_INTEGER
+    bytecode.extend(struct.pack('i', 13))  # 13
+    bytecode.append(0)  # IL_ADD
+    bytecode.append(6)  # IL_INTEGER
+    bytecode.extend(struct.pack('i', 5))  # 5
+    bytecode.append(0)  # IL_ADD
+    bytecode.append(7)  # IL_PRINT
+    bytecode.append(8)  # IL_RET
+
+    VM(bytecode).execute()
+```
