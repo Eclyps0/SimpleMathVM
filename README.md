@@ -1,5 +1,7 @@
 # SimpleMathVM
 
+## .NET Core 8
+
 ```cs
 static void Main()
 {
