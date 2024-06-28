@@ -37,3 +37,23 @@ if __name__ == "__main__":
 
     VM(bytecode).execute()
 ```
+
+## JavaScript
+```js
+function main() {
+    // Example bytecode: push 12, push 13, add, push 5, add, print, return
+    const bytecode = [];
+    bytecode.push(6); // IL_INTEGER
+    bytecode.push(...new Uint8Array(new Int32Array([12]).buffer)); // 12
+    bytecode.push(6); // IL_INTEGER
+    bytecode.push(...new Uint8Array(new Int32Array([13]).buffer)); // 13
+    bytecode.push(0); // IL_ADD
+    bytecode.push(6); // IL_INTEGER
+    bytecode.push(...new Uint8Array(new Int32Array([5]).buffer)); // 5
+    bytecode.push(0); // IL_ADD
+    bytecode.push(7); // IL_PRINT
+    bytecode.push(8); // IL_RET
+
+    new VM(bytecode).execute();;
+}
+```
