@@ -14,6 +14,7 @@ static void Main()
     bytecode.Add(0); // IL_ADD
     bytecode.Add(7); // IL_PRINT
     bytecode.Add(8); // IL_RET
+
     new VM(bytecode.ToArray()).Execute(); // 165
 }
 ```
@@ -55,5 +56,25 @@ function main() {
     bytecode.push(8); // IL_RET
 
     new VM(bytecode).execute();;
+}
+```
+
+## Golang
+```go
+func main() {
+	// Example bytecode: push 12, push 13, add, push 5, add, print, return
+	var bytecode []byte
+	bytecode = append(bytecode, byte(IL_INTEGER))    // IL_INTEGER
+	bytecode = append(bytecode, int32ToBytes(12)...) //12
+	bytecode = append(bytecode, byte(IL_INTEGER))    // IL_INTEGER
+	bytecode = append(bytecode, int32ToBytes(13)...) //13
+	bytecode = append(bytecode, byte(IL_ADD))        // IL_ADD
+	bytecode = append(bytecode, byte(IL_INTEGER))    //IL_INTEGER
+	bytecode = append(bytecode, int32ToBytes(5)...)  // 5
+	bytecode = append(bytecode, byte(IL_ADD))        // IL_ADD
+	bytecode = append(bytecode, byte(IL_PRINT))      // IL_PRINT
+	bytecode = append(bytecode, byte(IL_RET))        // IL_RET
+
+	NewVM(bytecode).Execute() // 30
 }
 ```
