@@ -5,7 +5,7 @@
 ```cs
 static void Main()
 {
-    // Example bytecode: push 9999, push 153, add, print, return
+    // Example bytecode: push 12, push 153, add, print, return
     List<byte> bytecode = new List<byte> { };
     bytecode.Add(6); // IL_INTEGER 
     bytecode.AddRange(BitConverter.GetBytes(12)); // 12
